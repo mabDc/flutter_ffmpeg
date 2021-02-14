@@ -1,0 +1,1691 @@
+Running in Directory: '/mnt/d/Project/neko/plugins/flutter_ffmpeg'
+[WARNING]: Prefer adding Key 'name' to your config.
+[WARNING]: Prefer adding Key 'description' to your config.
+Input Headers: [./windows/ffmpeg/include/libavcodec/ac3_parser.h, ./windows/ffmpeg/include/libavcodec/adts_parser.h, ./windows/ffmpeg/include/libavcodec/avcodec.h, ./windows/ffmpeg/include/libavcodec/avdct.h, ./windows/ffmpeg/include/libavcodec/avfft.h, ./windows/ffmpeg/include/libavcodec/bsf.h, ./windows/ffmpeg/include/libavcodec/codec.h, ./windows/ffmpeg/include/libavcodec/codec_desc.h, ./windows/ffmpeg/include/libavcodec/codec_id.h, ./windows/ffmpeg/include/libavcodec/codec_par.h, ./windows/ffmpeg/include/libavcodec/d3d11va.h, ./windows/ffmpeg/include/libavcodec/dirac.h, ./windows/ffmpeg/include/libavcodec/dv_profile.h, ./windows/ffmpeg/include/libavcodec/dxva2.h, ./windows/ffmpeg/include/libavcodec/jni.h, ./windows/ffmpeg/include/libavcodec/mediacodec.h, ./windows/ffmpeg/include/libavcodec/packet.h, ./windows/ffmpeg/include/libavcodec/qsv.h, ./windows/ffmpeg/include/libavcodec/vaapi.h, ./windows/ffmpeg/include/libavcodec/vdpau.h, ./windows/ffmpeg/include/libavcodec/version.h, ./windows/ffmpeg/include/libavcodec/videotoolbox.h, ./windows/ffmpeg/include/libavcodec/vorbis_parser.h, ./windows/ffmpeg/include/libavcodec/xvmc.h, ./windows/ffmpeg/include/libavdevice/avdevice.h, ./windows/ffmpeg/include/libavdevice/version.h, ./windows/ffmpeg/include/libavfilter/avfilter.h, ./windows/ffmpeg/include/libavfilter/buffersink.h, ./windows/ffmpeg/include/libavfilter/buffersrc.h, ./windows/ffmpeg/include/libavfilter/version.h, ./windows/ffmpeg/include/libavformat/avformat.h, ./windows/ffmpeg/include/libavformat/avio.h, ./windows/ffmpeg/include/libavformat/version.h, ./windows/ffmpeg/include/libavutil/adler32.h, ./windows/ffmpeg/include/libavutil/aes.h, ./windows/ffmpeg/include/libavutil/aes_ctr.h, ./windows/ffmpeg/include/libavutil/attributes.h, ./windows/ffmpeg/include/libavutil/audio_fifo.h, ./windows/ffmpeg/include/libavutil/avassert.h, ./windows/ffmpeg/include/libavutil/avconfig.h, ./windows/ffmpeg/include/libavutil/avstring.h, ./windows/ffmpeg/include/libavutil/avutil.h, ./windows/ffmpeg/include/libavutil/base64.h, ./windows/ffmpeg/include/libavutil/blowfish.h, ./windows/ffmpeg/include/libavutil/bprint.h, ./windows/ffmpeg/include/libavutil/bswap.h, ./windows/ffmpeg/include/libavutil/buffer.h, ./windows/ffmpeg/include/libavutil/camellia.h, ./windows/ffmpeg/include/libavutil/cast5.h, ./windows/ffmpeg/include/libavutil/channel_layout.h, ./windows/ffmpeg/include/libavutil/common.h, ./windows/ffmpeg/include/libavutil/cpu.h, ./windows/ffmpeg/include/libavutil/crc.h, ./windows/ffmpeg/include/libavutil/des.h, ./windows/ffmpeg/include/libavutil/dict.h, ./windows/ffmpeg/include/libavutil/display.h, ./windows/ffmpeg/include/libavutil/dovi_meta.h, ./windows/ffmpeg/include/libavutil/downmix_info.h, ./windows/ffmpeg/include/libavutil/encryption_info.h, ./windows/ffmpeg/include/libavutil/error.h, ./windows/ffmpeg/include/libavutil/eval.h, ./windows/ffmpeg/include/libavutil/ffversion.h, ./windows/ffmpeg/include/libavutil/fifo.h, ./windows/ffmpeg/include/libavutil/file.h, ./windows/ffmpeg/include/libavutil/film_grain_params.h, ./windows/ffmpeg/include/libavutil/frame.h, ./windows/ffmpeg/include/libavutil/hash.h, ./windows/ffmpeg/include/libavutil/hdr_dynamic_metadata.h, ./windows/ffmpeg/include/libavutil/hmac.h, ./windows/ffmpeg/include/libavutil/hwcontext.h, ./windows/ffmpeg/include/libavutil/hwcontext_cuda.h, ./windows/ffmpeg/include/libavutil/hwcontext_d3d11va.h, ./windows/ffmpeg/include/libavutil/hwcontext_drm.h, ./windows/ffmpeg/include/libavutil/hwcontext_dxva2.h, ./windows/ffmpeg/include/libavutil/hwcontext_mediacodec.h, ./windows/ffmpeg/include/libavutil/hwcontext_opencl.h, ./windows/ffmpeg/include/libavutil/hwcontext_qsv.h, ./windows/ffmpeg/include/libavutil/hwcontext_vaapi.h, ./windows/ffmpeg/include/libavutil/hwcontext_vdpau.h, ./windows/ffmpeg/include/libavutil/hwcontext_videotoolbox.h, ./windows/ffmpeg/include/libavutil/hwcontext_vulkan.h, ./windows/ffmpeg/include/libavutil/imgutils.h, ./windows/ffmpeg/include/libavutil/intfloat.h, ./windows/ffmpeg/include/libavutil/intreadwrite.h, ./windows/ffmpeg/include/libavutil/lfg.h, ./windows/ffmpeg/include/libavutil/log.h, ./windows/ffmpeg/include/libavutil/lzo.h, ./windows/ffmpeg/include/libavutil/macros.h, ./windows/ffmpeg/include/libavutil/mastering_display_metadata.h, ./windows/ffmpeg/include/libavutil/mathematics.h, ./windows/ffmpeg/include/libavutil/md5.h, ./windows/ffmpeg/include/libavutil/mem.h, ./windows/ffmpeg/include/libavutil/motion_vector.h, ./windows/ffmpeg/include/libavutil/murmur3.h, ./windows/ffmpeg/include/libavutil/opt.h, ./windows/ffmpeg/include/libavutil/parseutils.h, ./windows/ffmpeg/include/libavutil/pixdesc.h, ./windows/ffmpeg/include/libavutil/pixelutils.h, ./windows/ffmpeg/include/libavutil/pixfmt.h, ./windows/ffmpeg/include/libavutil/random_seed.h, ./windows/ffmpeg/include/libavutil/rational.h, ./windows/ffmpeg/include/libavutil/rc4.h, ./windows/ffmpeg/include/libavutil/replaygain.h, ./windows/ffmpeg/include/libavutil/ripemd.h, ./windows/ffmpeg/include/libavutil/samplefmt.h, ./windows/ffmpeg/include/libavutil/sha.h, ./windows/ffmpeg/include/libavutil/sha512.h, ./windows/ffmpeg/include/libavutil/spherical.h, ./windows/ffmpeg/include/libavutil/stereo3d.h, ./windows/ffmpeg/include/libavutil/tea.h, ./windows/ffmpeg/include/libavutil/threadmessage.h, ./windows/ffmpeg/include/libavutil/time.h, ./windows/ffmpeg/include/libavutil/timecode.h, ./windows/ffmpeg/include/libavutil/timestamp.h, ./windows/ffmpeg/include/libavutil/tree.h, ./windows/ffmpeg/include/libavutil/twofish.h, ./windows/ffmpeg/include/libavutil/tx.h, ./windows/ffmpeg/include/libavutil/version.h, ./windows/ffmpeg/include/libavutil/video_enc_params.h, ./windows/ffmpeg/include/libavutil/xtea.h, ./windows/ffmpeg/include/libpostproc/postprocess.h, ./windows/ffmpeg/include/libpostproc/version.h, ./windows/ffmpeg/include/libswresample/swresample.h, ./windows/ffmpeg/include/libswresample/version.h, ./windows/ffmpeg/include/libswscale/swscale.h, ./windows/ffmpeg/include/libswscale/version.h]
+[WARNING]: Removed All Struct Members from max_align_t(max_align_t), struct member has an unsupported type.
+[WARNING]: Removed All Struct Members from __mbstate_t(__mbstate_t), struct member has an unsupported type.
+[WARNING]: Removed All Struct Members from _G_fpos_t(_G_fpos_t), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from _G_fpos64_t(_G_fpos64_t), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from __pthread_mutex_s(__pthread_mutex_s), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVRegionOfInterest(AVRegionOfInterest), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from AVFrame(AVFrame), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from AVCodecParameters(AVCodecParameters), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from AVPacketList(AVPacketList), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVBSFContext(AVBSFContext), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVSubtitleRect(AVSubtitleRect), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_opt_set_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_opt_set_video_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavcodec/d3d11va.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavcodec/d3d11va.h:39:10: fatal error: 'd3d11.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVDiracSeqHeader(AVDiracSeqHeader), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVDVProfile(AVDVProfile), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_dv_codec_profile2', struct pass/return by value not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavcodec/dxva2.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavcodec/dxva2.h:38:10: fatal error: 'd3d9.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavcodec/qsv.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavcodec/qsv.h:24:10: fatal error: 'mfx/mfxvideo.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavcodec/vdpau.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavcodec/vdpau.h:52:10: fatal error: 'vdpau/vdpau.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavcodec/videotoolbox.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavcodec/videotoolbox.h:35:10: fatal error: 'VideoToolbox/VideoToolbox.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_opt_set_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_opt_set_video_rate', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from itimerspec(itimerspec), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVIndexEntry(AVIndexEntry), Bit Field members not supported.
+[WARNING]: Removed All Struct Members from AVStream(AVStream), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_stream_get_r_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_stream_set_r_frame_rate', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVChapter(AVChapter), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_guess_sample_aspect_ratio', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_guess_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_stream_get_codec_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_buffersink_get_time_base', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_buffersink_get_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_buffersink_get_sample_aspect_ratio', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVBufferSrcParameters(AVBufferSrcParameters), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_packet_rescale_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_get_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_codec_set_pkt_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_stream_get_r_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_stream_set_r_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_guess_sample_aspect_ratio', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_guess_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_stream_get_codec_timebase', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVFilmGrainParams(AVFilmGrainParams), struct member has an unsupported type.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVHDRPlusPercentile(AVHDRPlusPercentile), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from AVHDRPlusColorTransformParams(AVHDRPlusColorTransformParams), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from AVDynamicHDRPlus(AVDynamicHDRPlus), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_cuda.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_cuda.h:24:10: fatal error: 'cuda.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_d3d11va.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_d3d11va.h:39:10: fatal error: 'd3d11.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Removed All Struct Members from AVDRMLayerDescriptor(AVDRMLayerDescriptor), Nested Structures not supported.
+[WARNING]: Removed All Struct Members from AVDRMFrameDescriptor(AVDRMFrameDescriptor), Nested Structures not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_dxva2.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_dxva2.h:33:10: fatal error: 'd3d9.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_opencl.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_opencl.h:25:10: fatal error: 'CL/cl.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_qsv.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_qsv.h:22:10: fatal error: 'mfx/mfxvideo.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_vaapi.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_vaapi.h:22:10: fatal error: 'va/va.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_vdpau.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_vdpau.h:22:10: fatal error: 'vdpau/vdpau.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_videotoolbox.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_videotoolbox.h:24:10: fatal error: 'VideoToolbox/VideoToolbox.h' file not found [Lexical or Preprocessor Issue]
+[SEVERE] : Header ./windows/ffmpeg/include/libavutil/hwcontext_vulkan.h: Total errors/warnings: 1.
+[SEVERE] :     ./windows/ffmpeg/include/libavutil/hwcontext_vulkan.h:22:10: fatal error: 'vulkan/vulkan.h' file not found [Lexical or Preprocessor Issue]
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVPixFmtDescriptor(AVPixFmtDescriptor), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_image_check_sar', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVMasteringDisplayMetadata(AVMasteringDisplayMetadata), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_opt_set_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_opt_set_video_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Removed All Struct Members from AVTimecode(AVTimecode), Nested Structures not supported.
+[WARNING]: Skipped Function 'av_timecode_get_smpte', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_timecode_make_smpte_tc_string2', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_timecode_init', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_timecode_init_from_components', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_timecode_init_from_string', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_timecode_check_frame_rate', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_make_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_cmp_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2d', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_mul_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_div_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_sub_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_inv_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_d2q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_nearer_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_find_nearest_q_idx', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_q2intfloat', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_gcd_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_q_rnd', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_compare_ts', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_rescale_delta', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_add_stable', struct pass/return by value not supported.
+[WARNING]: Skipped Function 'av_get_time_base_q', struct pass/return by value not supported.
+[WARNING]: Generated declaration '__fsid_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__mbstate_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__fpos_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__fpos64_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_FILE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_marker' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_codecvt' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_wide_data' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__sigset_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__pthread_list_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__pthread_slist_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__pthread_mutex_s' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__pthread_rwlock_arch_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__pthread_cond_s' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__locale_data' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__locale_struct' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__va_list_tag' start's with '_' and therefore will be private.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_3'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_3'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_3'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_3'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_4'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_4'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_4'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_4'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_4'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_5'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_5'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_5'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_5'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_5'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_6'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_6'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_6'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_6'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_6'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_7'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_7'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_7'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_7'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_2'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_8'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_8'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_8'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_8'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_3'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_3'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_9'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_9'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_9'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_9'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_4'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_4'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_10'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_10'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_10'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_10'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_10'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_5'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_5'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_11'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_11'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_11'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_11'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_11'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_6'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_6'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_12'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_12'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_12'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_12'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_12'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_7'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_7'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_13'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_13'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_13'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_13'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_13'.
+[WARNING]: Resolved name conflict: Declaration 'AV_OPT_FLAG_IMPLICIT_KEY' and has been renamed to 'AV_OPT_FLAG_IMPLICIT_KEY_1'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_8'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_8'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_14'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_14'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_14'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_14'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_14'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_9'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_15'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_15'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_15'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_15'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_15'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_10'.
+[WARNING]: Resolved name conflict: Declaration 'AVFILTER_AUTO_CONVERT_ALL' and has been renamed to 'AVFILTER_AUTO_CONVERT_ALL_1'.
+[WARNING]: Resolved name conflict: Declaration 'AVFILTER_AUTO_CONVERT_NONE' and has been renamed to 'AVFILTER_AUTO_CONVERT_NONE_1'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_16'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_16'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_16'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_16'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_16'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_11'.
+[WARNING]: Resolved name conflict: Declaration 'AVFILTER_AUTO_CONVERT_ALL' and has been renamed to 'AVFILTER_AUTO_CONVERT_ALL_2'.
+[WARNING]: Resolved name conflict: Declaration 'AVFILTER_AUTO_CONVERT_NONE' and has been renamed to 'AVFILTER_AUTO_CONVERT_NONE_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_17'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_17'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_17'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_17'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_17'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_12'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_DEVICE_CTX_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_HW_FRAMES_CTX_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_INTERNAL_9'.
+[WARNING]: Resolved name conflict: Declaration 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC' and has been renamed to 'AV_CODEC_HW_CONFIG_METHOD_AD_HOC_9'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_18'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_18'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_18'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_18'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_18'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_19'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_19'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_19'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_19'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_19'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_20'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_20'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_20'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_20'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_20'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_21'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_21'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_21'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_21'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_21'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_22'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_22'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_22'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_22'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_22'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_23'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_23'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_23'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_23'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_23'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_24'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_24'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_24'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_24'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_24'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_13'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_25'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_25'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_25'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_25'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_25'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_26'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_26'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_26'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_26'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_26'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_27'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_27'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_27'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_27'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_27'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_28'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_28'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_28'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_28'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_28'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_14'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_29'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_29'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_29'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_29'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_29'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_15'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_30'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_30'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_30'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_30'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_30'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_16'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_31'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_31'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_31'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_31'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_31'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_17'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_READ' and has been renamed to 'AV_HWFRAME_MAP_READ_10'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_WRITE' and has been renamed to 'AV_HWFRAME_MAP_WRITE_10'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_OVERWRITE' and has been renamed to 'AV_HWFRAME_MAP_OVERWRITE_10'.
+[WARNING]: Resolved name conflict: Declaration 'AV_HWFRAME_MAP_DIRECT' and has been renamed to 'AV_HWFRAME_MAP_DIRECT_10'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_32'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_32'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_32'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_32'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_32'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_18'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_33'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_33'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_33'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_33'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_33'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_19'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_34'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_34'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_34'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_34'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_34'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_35'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_35'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_35'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_35'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_35'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_36'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_36'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_36'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_36'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_36'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_20'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_37'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_37'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_37'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_37'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_37'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_38'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_38'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_38'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_38'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_38'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_39'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_39'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_39'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_39'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_39'.
+[WARNING]: Resolved name conflict: Declaration 'AV_OPT_FLAG_IMPLICIT_KEY' and has been renamed to 'AV_OPT_FLAG_IMPLICIT_KEY_2'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_40'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_40'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_40'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_40'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_40'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_41'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_41'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_41'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_41'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_41'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_42'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_42'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_42'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_42'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_42'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_21'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_43'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_43'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_43'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_43'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_43'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_44'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_44'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_44'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_44'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_44'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_22'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_45'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_45'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_45'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_45'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_45'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_46'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_46'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_46'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_46'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_46'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_47'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_47'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_47'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_47'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_47'.
+[WARNING]: Resolved name conflict: Declaration 'AV_FRAME_CROP_UNALIGNED' and has been renamed to 'AV_FRAME_CROP_UNALIGNED_23'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_48'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_48'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_48'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_48'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_48'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_49'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_49'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_49'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_49'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_49'.
+[WARNING]: Generated declaration '_STDINT_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_FEATURES_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_DEFAULT_SOURCE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_ISOC2X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_ISOC11' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_ISOC99' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_ISOC95' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SOURCE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_C_SOURCE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_POSIX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_POSIX2' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_POSIX199309' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_POSIX199506' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_XOPEN2K' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_XOPEN2K8' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_ATFILE_SOURCE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_MISC' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_ATFILE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__USE_FORTIFY_LEVEL' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_DEPRECATED_GETS' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_DEPRECATED_SCANF' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_STDC_PREDEF_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__STDC_IEC_559__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__STDC_IEC_559_COMPLEX__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__STDC_ISO_10646__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GNU_LIBRARY__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_MINOR__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_SYS_CDEFS_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__glibc_c99_flexarr_available' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WORDSIZE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WORDSIZE_TIME64_COMPAT32' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SYSCALL_WORDSIZE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__LONG_DOUBLE_USES_FLOAT128' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_GENERIC_SELECTION' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_LIB_EXT2' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_IEC_60559_BFP_EXT' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_IEC_60559_BFP_EXT_C2X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_IEC_60559_FUNCS_EXT' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_IEC_60559_FUNCS_EXT_C2X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_USE_IEC_60559_TYPES_EXT' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_TYPES_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__TIMESIZE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_TYPESIZES_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__OFF_T_MATCHES_OFF64_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__INO_T_MATCHES_INO64_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__RLIM_T_MATCHES_RLIM64_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__STATFS_MATCHES_STATFS64' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__FD_SETSIZE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_TIME64_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_WCHAR_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WCHAR_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WCHAR_MIN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_STDINT_INTN_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_STDINT_UINTN_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_ERRNO_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_ERRNO_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_INTTYPES_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '____gwchar_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__PRI64_PREFIX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__PRIPTR_PREFIX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_LIBC_LIMITS_H_' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_POSIX1_LIM_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_AIO_LISTIO_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_AIO_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_ARG_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_CHILD_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_DELAYTIMER_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_HOST_NAME_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_LINK_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_LOGIN_NAME_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_MAX_CANON' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_MAX_INPUT' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_MQ_OPEN_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_MQ_PRIO_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_NAME_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_NGROUPS_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_OPEN_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_PATH_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_PIPE_BUF' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_RE_DUP_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_RTSIG_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SEM_NSEMS_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SEM_VALUE_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SIGQUEUE_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SSIZE_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_STREAM_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SYMLINK_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_SYMLOOP_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_TIMER_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_TTY_NAME_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_TZNAME_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_CLOCKRES_MIN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_THREAD_KEYS_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_THREAD_DESTRUCTOR_ITERATIONS' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX_THREAD_THREADS_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_POSIX2_LIM_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_BC_BASE_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_BC_DIM_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_BC_SCALE_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_BC_STRING_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_COLL_WEIGHTS_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_EXPR_NEST_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_LINE_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_RE_DUP_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_POSIX2_CHARCLASS_NAME_MAX' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_MATH_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_LIBM_SIMD_DECL_STUBS_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT128' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT128' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT64X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT64X_LONG_DOUBLE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT16' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT32' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT64' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT32X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT128X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT16' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT32' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT64' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT32X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT64X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_DISTINCT_FLOAT128X' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOAT128_UNLIKE_LDBL' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__HAVE_FLOATN_NOT_TYPEDEF' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GLIBC_FLT_EVAL_METHOD' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__FP_LOGB0_IS_MIN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__FP_LOGBNAN_IS_MIN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__MATH_DECLARE_LDOUBLE' start's with '_' and therefore will be private.
+[WARNING]: Resolved name conflict: Declaration 'FP_NAN' and has been renamed to 'FP_NAN_50'.
+[WARNING]: Resolved name conflict: Declaration 'FP_INFINITE' and has been renamed to 'FP_INFINITE_50'.
+[WARNING]: Resolved name conflict: Declaration 'FP_ZERO' and has been renamed to 'FP_ZERO_50'.
+[WARNING]: Resolved name conflict: Declaration 'FP_SUBNORMAL' and has been renamed to 'FP_SUBNORMAL_50'.
+[WARNING]: Resolved name conflict: Declaration 'FP_NORMAL' and has been renamed to 'FP_NORMAL_50'.
+[WARNING]: Generated declaration '_STDIO_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__GNUC_VA_LIST' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_____fpos_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '____mbstate_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_____fpos64_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '____FILE_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__FILE_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__struct_FILE_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_EOF_SEEN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_ERR_SEEN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IO_USER_LOCK' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IOFBF' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IOLBF' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_IONBF' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_STDIO_LIM_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_STDLIB_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WNOTHREAD' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WALL' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WCLONE' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__ENUM_IDTYPE_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__W_CONTINUED' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__WCOREFLAG' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__ldiv_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__lldiv_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_SYS_TYPES_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__clock_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__clockid_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__time_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__timer_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__BIT_TYPES_DEFINED__' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_ENDIAN_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_ENDIAN_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__LITTLE_ENDIAN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__BIG_ENDIAN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__PDP_ENDIAN' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_ENDIANNESS_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__BYTE_ORDER' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__FLOAT_WORD_ORDER' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_BYTESWAP_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_UINTN_IDENTITY_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_SYS_SELECT_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__FD_ZERO_STOS' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__sigset_t_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_SIGSET_NWORDS' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__timeval_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_STRUCT_TIMESPEC' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__NFDBITS' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_PTHREADTYPES_COMMON_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_THREAD_SHARED_TYPES_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_PTHREADTYPES_ARCH_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_MUTEX_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_ATTR_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_RWLOCK_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_BARRIER_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_MUTEXATTR_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_COND_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_CONDATTR_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_RWLOCKATTR_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__SIZEOF_PTHREAD_BARRIERATTR_T' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_THREAD_MUTEX_INTERNAL_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__PTHREAD_MUTEX_HAVE_PREV' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__PTHREAD_RWLOCK_ELISION_EXTRA' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__have_pthread_attr_t' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_ALLOCA_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_STRING_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_TYPES_LOCALE_T_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_TYPES___LOCALE_T_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_STRINGS_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_WIN32_WINNT' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_TIME_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '_BITS_TIME_H' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__struct_tm_defined' start's with '_' and therefore will be private.
+[WARNING]: Generated declaration '__itimerspec_defined' start's with '_' and therefore will be private.
+Finished, Bindings generated in /mnt/d/Project/neko/plugins/flutter_ffmpeg/ffi.g.dart
