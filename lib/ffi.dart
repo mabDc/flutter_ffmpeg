@@ -7,6 +7,8 @@ final avformat = DynamicLibrary.open('avformat-58.dll');
 final avcodec = DynamicLibrary.open('avcodec-58.dll');
 final avutil = DynamicLibrary.open('avutil-56.dll');
 final swscale = DynamicLibrary.open('swscale-5.dll');
+final swresample = DynamicLibrary.open('swresample-3.dll');
+final sdllib = DynamicLibrary.open('SDL2.dll');
 
 abstract class AVMediaType {
   /// ///< Usually treated as AVMEDIA_TYPE_DATA
@@ -717,6 +719,12 @@ extension PointerAVFrame on Pointer<AVFrame> {
       Pointer.fromAddress(_ffiGetProperty(this, 'data'));
   Pointer<Int32> get linesize =>
       Pointer.fromAddress(_ffiGetProperty(this, 'linesize'));
+  get channel_layout => _ffiGetProperty(this, 'channel_layout');
+  get format => _ffiGetProperty(this, 'format');
+  get sample_rate => _ffiGetProperty(this, 'sample_rate');
+  Pointer<Pointer<Uint8>> get extended_data =>
+      Pointer.fromAddress(_ffiGetProperty(this, 'extended_data'));
+  get nb_samples => _ffiGetProperty(this, 'nb_samples');
 }
 
 class SwsContext extends Struct {}
@@ -1005,4 +1013,354 @@ final int Function(
       Pointer<Pointer<Uint8>>,
       Pointer<Int32>,
     )>>('sws_scale')
+    .asFunction();
+
+// int64_t av_get_default_channel_layout(int nb_channels);
+final int Function(
+  int nb_channels,
+) av_get_default_channel_layout = avutil
+    .lookup<
+        NativeFunction<
+            Int64 Function(
+      Int32,
+    )>>('av_get_default_channel_layout')
+    .asFunction();
+
+// int av_samples_get_buffer_size(int *linesize, int nb_channels, int nb_samples,
+//                                enum AVSampleFormat sample_fmt, int align);
+final int Function(
+  Pointer<Int32> linesize,
+  int nb_channels,
+  int nb_samples,
+  int sample_fmt,
+  int align,
+) av_samples_get_buffer_size = avutil
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<Int32>,
+      Int32,
+      Int32,
+      Int32,
+      Int32,
+    )>>('av_samples_get_buffer_size')
+    .asFunction();
+
+// void av_fast_malloc(void *ptr, unsigned int *size, size_t min_size);
+final void Function(
+  Pointer ptr,
+  Pointer<Uint32> size,
+  int min_size,
+) av_fast_malloc = avutil
+    .lookup<
+        NativeFunction<
+            Void Function(
+      Pointer,
+      Pointer<Uint32>,
+      Int32,
+    )>>('av_fast_malloc')
+    .asFunction();
+
+// int av_get_bytes_per_sample(enum AVSampleFormat sample_fmt);
+final int Function(
+  int sample_fmt,
+) av_get_bytes_per_sample = avutil
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Int32,
+    )>>('av_get_bytes_per_sample')
+    .asFunction();
+
+class SwrContext extends Struct {}
+
+// struct SwrContext *swr_alloc_set_opts(struct SwrContext *s,
+//                                       int64_t out_ch_layout, enum AVSampleFormat out_sample_fmt, int out_sample_rate,
+//                                       int64_t  in_ch_layout, enum AVSampleFormat  in_sample_fmt, int  in_sample_rate,
+//                                       int log_offset, void *log_ctx);
+final Pointer<SwrContext> Function(
+  Pointer<SwrContext> s,
+  int out_ch_layout,
+  int out_sample_fmt,
+  int out_sample_rate,
+  int in_ch_layout,
+  int in_sample_fmt,
+  int in_sample_rate,
+  int log_offset,
+  Pointer log_ctx,
+) swr_alloc_set_opts = swresample
+    .lookup<
+        NativeFunction<
+            Pointer<SwrContext> Function(
+      Pointer<SwrContext>,
+      Int64,
+      Int32,
+      Int32,
+      Int64,
+      Int32,
+      Int32,
+      Int32,
+      Pointer,
+    )>>('swr_alloc_set_opts')
+    .asFunction();
+
+// int swr_init(struct SwrContext *s);
+final int Function(
+  Pointer<SwrContext> s,
+) swr_init = swresample
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<SwrContext>,
+    )>>('swr_init')
+    .asFunction();
+
+// void swr_free(struct SwrContext **s);
+final void Function(
+  Pointer<Pointer<SwrContext>> s,
+) swr_free = swresample
+    .lookup<
+        NativeFunction<
+            Void Function(
+      Pointer<Pointer<SwrContext>>,
+    )>>('swr_free')
+    .asFunction();
+
+// int swr_convert(struct SwrContext *s, uint8_t **out, int out_count,
+//                                const uint8_t **in , int in_count);
+final int Function(
+  Pointer<SwrContext> s,
+  Pointer<Pointer<Uint8>> out,
+  int out_count,
+  Pointer<Pointer<Uint8>> inp,
+  int in_count,
+) swr_convert = swresample
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<SwrContext>,
+      Pointer<Pointer<Uint8>>,
+      Int32,
+      Pointer<Pointer<Uint8>>,
+      Int32,
+    )>>('swr_convert')
+    .asFunction();
+
+class IMMDeviceEnumerator extends Struct {}
+
+class IMMDevice extends Struct {}
+
+class IAudioClient extends Struct {}
+
+class IAudioRenderClient extends Struct {}
+
+class WAVEFORMATEX extends Struct {
+  @Uint16()
+  int wFormatTag;
+  @Uint16()
+  int nChannels;
+  @Uint32()
+  int nSamplesPerSec;
+  @Uint32()
+  int nAvgBytesPerSec;
+  @Uint16()
+  int nBlockAlign;
+  @Uint16()
+  int wBitsPerSample;
+  @Uint16()
+  int cbSize;
+}
+
+// IMMDeviceEnumerator *createIMMDeviceEnumerator()
+final Pointer<IMMDeviceEnumerator> Function() createIMMDeviceEnumerator = ffilib
+    .lookup<NativeFunction<Pointer<IMMDeviceEnumerator> Function()>>(
+        'createIMMDeviceEnumerator')
+    .asFunction();
+
+// void releaseIUnknown(IUnknown *p)
+final void Function(
+  Pointer p,
+) releaseIUnknown = ffilib
+    .lookup<
+        NativeFunction<
+            Void Function(
+      Pointer,
+    )>>('releaseIUnknown')
+    .asFunction();
+
+// IMMDevice *IMMDeviceEnumeratorGetDefaultAudioEndpoint(IMMDeviceEnumerator *pEnumerator)
+final Pointer<IMMDevice> Function(
+  Pointer<IMMDeviceEnumerator> pEnumerator,
+) iMMDeviceEnumeratorGetDefaultAudioEndpoint = ffilib
+    .lookup<
+        NativeFunction<
+            Pointer<IMMDevice> Function(
+      Pointer<IMMDeviceEnumerator>,
+    )>>('IMMDeviceEnumeratorGetDefaultAudioEndpoint')
+    .asFunction();
+
+// IAudioClient *IMMDeviceActivate(IMMDevice *pDevice)
+final Pointer<IAudioClient> Function(
+  Pointer<IMMDevice> pDevice,
+) iMMDeviceActivate = ffilib
+    .lookup<
+        NativeFunction<
+            Pointer<IAudioClient> Function(
+      Pointer<IMMDevice>,
+    )>>('IMMDeviceActivate')
+    .asFunction();
+
+// WAVEFORMATEX *IAudioClientGetMixFormat(IAudioClient *pAudioClient)
+final Pointer<WAVEFORMATEX> Function(
+  Pointer<IAudioClient> pAudioClient,
+) iAudioClientGetMixFormat = ffilib
+    .lookup<
+        NativeFunction<
+            Pointer<WAVEFORMATEX> Function(
+      Pointer<IAudioClient>,
+    )>>('IAudioClientGetMixFormat')
+    .asFunction();
+
+// void ffiCoTaskMemFree(WAVEFORMATEX *pwfx)
+final void Function(
+  Pointer<WAVEFORMATEX> pwfx,
+) ffiCoTaskMemFree = ffilib
+    .lookup<
+        NativeFunction<
+            Void Function(
+      Pointer<WAVEFORMATEX>,
+    )>>('ffiCoTaskMemFree')
+    .asFunction();
+
+// enum AVSampleFormat GetSampleFormat(WAVEFORMATEX *wave_format)
+final int Function(
+  Pointer<WAVEFORMATEX> waveFormat,
+) getSampleFormat = ffilib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<WAVEFORMATEX>,
+    )>>('GetSampleFormat')
+    .asFunction();
+
+// HRESULT IAudioClientInitialize(IAudioClient *pAudioClient, WAVEFORMATEX *pwfx, REFERENCE_TIME hnsRequestedDuration)
+final int Function(
+  Pointer<IAudioClient> pAudioClient,
+  Pointer<WAVEFORMATEX> pwfx,
+  int hnsRequestedDuration,
+) iAudioClientInitialize = ffilib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<IAudioClient>,
+      Pointer<WAVEFORMATEX>,
+      Int64,
+    )>>('IAudioClientInitialize')
+    .asFunction();
+
+// UINT32 IAudioClientGetBufferSize(IAudioClient *pAudioClient)
+final int Function(
+  Pointer<IAudioClient> pAudioClient,
+) iAudioClientGetBufferSize = ffilib
+    .lookup<
+        NativeFunction<
+            Uint32 Function(
+      Pointer<IAudioClient>,
+    )>>('IAudioClientGetBufferSize')
+    .asFunction();
+
+// IAudioRenderClient *IAudioClientGetService(IAudioClient *pAudioClient)
+final Pointer<IAudioRenderClient> Function(
+  Pointer<IAudioClient> pAudioClient,
+) iAudioClientGetService = ffilib
+    .lookup<
+        NativeFunction<
+            Pointer<IAudioRenderClient> Function(
+      Pointer<IAudioClient>,
+    )>>('IAudioClientGetService')
+    .asFunction();
+
+// UINT32 IAudioClientGetCurrentPadding(IAudioClient *pAudioClient)
+final int Function(
+  Pointer<IAudioClient> pAudioClient,
+) iAudioClientGetCurrentPadding = ffilib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<IAudioClient>,
+    )>>('IAudioClientGetCurrentPadding')
+    .asFunction();
+
+// BYTE *IAudioRenderClientGetBuffer(IAudioRenderClient *pRenderClient, UINT32 requestBuffer)
+final Pointer<Uint8> Function(
+  Pointer<IAudioRenderClient> pRenderClient,
+  int requestBuffer,
+) iAudioRenderClientGetBuffer = ffilib
+    .lookup<
+        NativeFunction<
+            Pointer<Uint8> Function(
+      Pointer<IAudioRenderClient>,
+      Uint32,
+    )>>('IAudioRenderClientGetBuffer')
+    .asFunction();
+
+// HRESULT IAudioRenderClientReleaseBuffer(IAudioRenderClient *pRenderClient, UINT32 requestBuffer)
+final int Function(
+  Pointer<IAudioRenderClient> pRenderClient,
+  int requestBuffer,
+) iAudioRenderClientReleaseBuffer = ffilib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<IAudioRenderClient>,
+      Uint32,
+    )>>('IAudioRenderClientReleaseBuffer')
+    .asFunction();
+
+// DLLEXPORT HRESULT IAudioClientStart(IAudioClient *pAudioClient)
+final int Function(
+  Pointer<IAudioClient> pAudioClient,
+) iAudioClientStart = ffilib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<IAudioClient>,
+    )>>('IAudioClientStart')
+    .asFunction();
+
+// DLLEXPORT HRESULT IAudioClientStop(IAudioClient *pAudioClient)
+final int Function(
+  Pointer<IAudioClient> pAudioClient,
+) iAudioClientStop = ffilib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Pointer<IAudioClient>,
+    )>>('IAudioClientStop')
+    .asFunction();
+
+// DLLEXPORT UINT32 ffiMemcpy(void *dst, void *src, UINT32 size)
+final int Function(
+  Pointer dst,
+  Pointer src,
+  int size,
+) ffiMemcpy = ffilib
+    .lookup<
+        NativeFunction<
+            Uint32 Function(
+      Pointer,
+      Pointer,
+      Uint32,
+    )>>('ffiMemcpy')
+    .asFunction();
+
+// int SDLCALL SDL_Init(Uint32 flags)
+final int Function(
+  int flags,
+) sdlInit = sdllib
+    .lookup<
+        NativeFunction<
+            Int32 Function(
+      Uint32,
+    )>>('SDL_Init')
     .asFunction();

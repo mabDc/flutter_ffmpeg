@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'dart:io';
 
 import 'package:ffi/ffi.dart';
+import 'package:flutter_ffmpeg/audio.dart';
 import 'package:flutter_ffmpeg/ffi.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -41,11 +42,13 @@ void main() {
     stderr.write(result.stderr);
     expect(result.exitCode, 0);
   });
-  test('avformat', () async {
+  test('changeDirectory', () async {
     Directory.current = './test/build/Debug';
+  });
+  test('avformat', () async {
     final p_fmt_ctx = allocate<Pointer<AVFormatContext>>();
     p_fmt_ctx.value = Pointer.fromAddress(0);
-    final url = Utf8.toUtf8("D:\\Downloads\\System\\big_buck_bunny.mp4");
+    final url = Utf8.toUtf8("D:\\CloudMusic\\seven oops - オレンジ.flac");
     // A1. 打开视频文件：读取文件头，将文件格式信息存储在"fmt context"中
     int ret = avformat_open_input(
         p_fmt_ctx, url, Pointer.fromAddress(0), Pointer.fromAddress(0));
@@ -57,14 +60,13 @@ void main() {
     assert(ret == 0);
     // A3. 查找第一个音频流/视频流
     final nb_streams = p_fmt_ctx.value.nb_streams;
-    print(nb_streams);
     final streams = p_fmt_ctx.value.streams;
     int v_idx = -1;
     Pointer<AVCodecParameters> p_codecpar = Pointer.fromAddress(0);
     for (var i = 0; i < nb_streams; ++i) {
       final stream = streams.elementAt(i).value;
       final codec_type = stream.codecpar.codec_type;
-      if (codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO){
+      if (codec_type == AVMediaType.AVMEDIA_TYPE_AUDIO) {
         v_idx = i;
         p_codecpar = stream.codecpar;
         break;
@@ -86,66 +88,82 @@ void main() {
     assert(ret == 0);
     // A6. 分配AVFrame
     // A6.1 分配AVFrame结构，注意并不分配data buffer(即AVFrame.*data[])
-    final p_frm_raw = allocate<Pointer<AVFrame>>();
-    p_frm_raw.value = av_frame_alloc();
-    final p_frm_argb = allocate<Pointer<AVFrame>>();
-    p_frm_argb.value = av_frame_alloc();
-    // A6.2 为AVFrame.*data[]手工分配缓冲区，用于存储sws_scale()中目的帧视频数据
-    //     p_frm_raw的data_buffer由av_read_frame()分配，因此不需手工分配
-    //     p_frm_yuv的data_buffer无处分配，因此在此处手工分配
-    final fmt = AVPixelFormat.AV_PIX_FMT_RGBA;
-    final buf_size = av_image_get_buffer_size(
-        fmt, p_codec_ctx.value.width, p_codec_ctx.value.height, 1);
-    final buffer = allocate<Uint8>(count: buf_size);
-    av_image_fill_arrays(
-        p_frm_argb.value.data, // dst data[]
-        p_frm_argb.value.linesize, // dst linesize[]
-        buffer, // src buffer
-        fmt, // pixel format
-        p_codec_ctx.value.width, // width
-        p_codec_ctx.value.height, // height
-        1 // align
-        );
-
-    final sws_ctx = sws_getContext(
-        p_codec_ctx.value.width, // src width
-        p_codec_ctx.value.height, // src height
-        p_codec_ctx.value.pix_fmt, // src format
-        p_codec_ctx.value.width, // dst width
-        p_codec_ctx.value.height, // dst height
-        fmt, // dst format
-        SWS_POINT, // flags
-        Pointer.fromAddress(0), // src filter
-        Pointer.fromAddress(0), // dst filter
-        Pointer.fromAddress(0) // param
-        );
+    final p_frame = allocate<Pointer<AVFrame>>();
+    p_frame.value = av_frame_alloc();
     final p_packet =
         allocate<Uint8>(count: ffiSizeOf<AVPacket>()).cast<AVPacket>();
+
+    final audio = AudioClient();
+    final s_resample_buf = allocate<Pointer<Uint8>>();
+    s_resample_buf.value = Pointer.fromAddress(0);
+    final s_resample_buf_len = allocate<Uint32>();
+    s_resample_buf_len.value = 0;
+    final s_audio_swr_ctx = allocate<Pointer<SwrContext>>();
+    s_audio_swr_ctx.value = Pointer.fromAddress(0);
+    int s_audio_param_src_channel_layout = -1;
+    int s_audio_param_src_format = -1;
+    int s_audio_param_src_sample_rate = -1;
+    final audioChannels = audio.channels;
+    final audioChannelLayout = av_get_default_channel_layout(audioChannels);
+    final bytePerSample = av_get_bytes_per_sample(audio.format);
+    audio.start();
+
     while (av_read_frame(p_fmt_ctx.value, p_packet) == 0) {
       if (p_packet.stream_index == v_idx) {
-        ret = avcodec_send_packet(p_codec_ctx.value, p_packet);
-        assert(ret == 0);
-        if (avcodec_receive_frame(p_codec_ctx.value, p_frm_raw.value) == 0) {
-          sws_scale(
-              sws_ctx, // sws context
-              p_frm_raw.value.data, // src slice
-              p_frm_raw.value.linesize, // src stride
-              0, // src slice y
-              p_codec_ctx.value.height, // src slice height
-              p_frm_argb.value.data, // dst planes
-              p_frm_argb.value.linesize // dst strides
-              );
+        if (avcodec_receive_frame(p_codec_ctx.value, p_frame.value) == 0) {
+          final src_channel_layout = p_frame.value.channel_layout;
+          final src_format = p_frame.value.format;
+          final src_sample_rate = p_frame.value.sample_rate;
+          if (s_audio_swr_ctx.value.address == 0 ||
+              src_channel_layout != s_audio_param_src_channel_layout ||
+              src_format != s_audio_param_src_format ||
+              src_sample_rate != s_audio_param_src_sample_rate) {
+            if (s_audio_swr_ctx.value.address != 0) swr_free(s_audio_swr_ctx);
+            s_audio_swr_ctx.value = swr_alloc_set_opts(
+                Pointer.fromAddress(0),
+                audioChannelLayout,
+                audio.format,
+                audio.sampleRate,
+                p_frame.value.channel_layout,
+                p_frame.value.format,
+                p_frame.value.sample_rate,
+                0,
+                Pointer.fromAddress(0));
+            assert(s_audio_swr_ctx.value.address != 0 &&
+                swr_init(s_audio_swr_ctx.value) >= 0);
+            s_audio_param_src_channel_layout = src_channel_layout;
+            s_audio_param_src_format = src_format;
+            s_audio_param_src_sample_rate = src_sample_rate;
+          }
+          assert(s_audio_swr_ctx.value.address != 0);
+          final inp = p_frame.value.extended_data;
+          final in_count = p_frame.value.nb_samples;
+          final out_count =
+              in_count * audio.sampleRate ~/ s_audio_param_src_sample_rate +
+                  256;
+          final out_size = av_samples_get_buffer_size(Pointer.fromAddress(0),
+              audioChannels, out_count, audio.format, 0);
+          assert(out_size >= 0);
+          av_fast_malloc(s_resample_buf, s_resample_buf_len, out_size);
+          assert(s_resample_buf.value.address != 0);
+          final nb_samples = swr_convert(
+              s_audio_swr_ctx.value, s_resample_buf, out_count, inp, in_count);
+          final resampled_data_size = nb_samples * bytePerSample * bytePerSample;
+          await audio.writeBuffer(s_resample_buf.value, resampled_data_size);
+        } else {
+          ret = avcodec_send_packet(p_codec_ctx.value, p_packet);
+          assert(ret == 0);
         }
       }
       av_packet_unref(p_packet);
     }
+    audio.stop();
+    audio.close();
+    if (s_audio_swr_ctx.value.address != 0) swr_free(s_audio_swr_ctx);
+    free(s_audio_swr_ctx);
     free(p_packet);
-    sws_freeContext(sws_ctx);
-    free(buffer);
-    av_frame_free(p_frm_raw);
-    av_frame_free(p_frm_argb);
-    free(p_frm_raw);
-    free(p_frm_argb);
+    av_frame_free(p_frame);
+    free(p_frame);
     avcodec_free_context(p_codec_ctx);
     free(p_codec_ctx);
     avformat_close_input(p_fmt_ctx);

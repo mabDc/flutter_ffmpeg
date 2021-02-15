@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/windows/**",
                 "${workspaceFolder}/example/windows/**",
-                "${workspaceFolder}/windows/ffmpeg/include/**"
+                "${workspaceFolder}/windows/ffmpeg/include/**",
+                "${workspaceFolder}/windows/sdl/include/**"
             ],
             "defines": [
                 "_DEBUG",
