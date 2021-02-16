@@ -41,21 +41,26 @@ class AudioClient {
         Duration(milliseconds: bufferFrameCount * 1000 / sampleRate ~/ 2));
   }
 
-  writeBuffer(Pointer<Uint8> data, int length) async {
+  int _padding = -1;
+  writeBuffer(Pointer<Uint8> data, int length, int bytePerFrame) async {
     int offset = 0;
     while (offset < length) {
-      final numFramesPadding = iAudioClientGetCurrentPadding(_pAudioClient);
-      final requestBuffer =
-          min<int>(bufferFrameCount - numFramesPadding, length - offset);
-      final pData = iAudioRenderClientGetBuffer(_pRenderClient, requestBuffer);
-      if (pData.address == 0) {
+      final frames = iAudioClientGetCurrentPadding(_pAudioClient);
+      if (frames > bufferFrameCount * 0.4) {
         await waitHalfBuffer();
         continue;
       }
-      ffiMemcpy(pData, data.elementAt(offset), requestBuffer);
+      final requestBuffer =
+          min<int>(bufferFrameCount - frames, length - offset);
+      final pData = iAudioRenderClientGetBuffer(_pRenderClient, requestBuffer);
+      if (pData.address != 0) {
+        ffiMemcpy(pData, data.elementAt(offset * bytePerFrame),
+            requestBuffer * bytePerFrame);
+        offset += requestBuffer;
+      }
       assert(
-          iAudioRenderClientReleaseBuffer(_pRenderClient, requestBuffer) >= 0);
-      offset += requestBuffer;
+          iAudioRenderClientReleaseBuffer(_pRenderClient, requestBuffer, 0) >=
+              0);
     }
   }
 

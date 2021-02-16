@@ -32,13 +32,19 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
               FloatingActionButton(onPressed: () async {
-                final ctx = FormatContext('D:\\Downloads\\System\\big_buck_bunny.mp4');
-                final stream = ctx.getStreamInfo().firstWhere((infos) => infos.codecType == AVMediaType.AVMEDIA_TYPE_VIDEO);
-                final frame = stream.codec.createFrame(AVPixelFormat.AV_PIX_FMT_RGBA);
-                await _texture.attatchBuffer(frame.buffer, frame.width, frame.height);
-                await ctx.play(stream, frame, () {
+                final ctx =
+                    FormatContext('D:\\Downloads\\System\\big_buck_bunny.mp4');
+                final astream = ctx.getStreamInfo().firstWhere((infos) =>
+                    infos.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO);
+                final vstream = ctx.getStreamInfo().firstWhere((infos) =>
+                    infos.codecType == AVMediaType.AVMEDIA_TYPE_VIDEO);
+                final frame = (vstream.codec as VideoCodecContext)
+                    .createFrame(AV_PIX_FMT_RGBA, () {
                   _texture.onFrame();
                 });
+                await _texture.attatchBuffer(
+                    frame.buffer, frame.width, frame.height);
+                await ctx.play([astream, vstream]);
               })
             ],
           )),

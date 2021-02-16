@@ -26,8 +26,6 @@ extern "C"
 #include "libswscale/swscale.h"
 #include "libswresample/swresample.h"
 
-#include "SDL.h"
-
   DEFINE_SIZE_OF(AVPacket)
 
   DEFINE_GET_CLASS_PROP(AVFormatContext, nb_streams)
@@ -45,48 +43,12 @@ extern "C"
   DEFINE_GET_CLASS_PROP(AVFrame, sample_rate)
   DEFINE_GET_CLASS_PROP(AVFrame, extended_data)
   DEFINE_GET_CLASS_PROP(AVFrame, nb_samples)
+  DEFINE_GET_CLASS_PROP(AVFrame, best_effort_timestamp)
   DEFINE_GET_CLASS_PROP(AVPacket, stream_index)
 
-  struct AudioData
+  DLLEXPORT double get_AVStream_time_base(AVStream *stream)
   {
-    Uint32 audio_len = 0;
-    Uint8 *audio_pos = NULL;
-  };
-
-  void fill_audio(void *udata, Uint8 *stream, int len)
-  {
-    auto data = (AudioData *)udata;
-    SDL_memset(stream, 0, len);
-    if (data->audio_len == 0)
-      return;
-
-    len = (len > data->audio_len ? data->audio_len : len); /*  Mix  as  much  data  as  possible  */
-
-    SDL_MixAudio(stream, data->audio_pos, len, SDL_MIX_MAXVOLUME);
-    data->audio_pos += len;
-    data->audio_len -= len;
-  }
-
-  DLLEXPORT AudioData *openAudio(int freq, int samples)
-  {
-    AudioData *data = new AudioData();
-    SDL_Init(SDL_INIT_AUDIO);
-    SDL_AudioSpec wanted_spec;
-    wanted_spec.freq = 44100;
-    wanted_spec.format = AUDIO_S16SYS;
-    wanted_spec.channels = av_get_channel_layout_nb_channels(AV_CH_LAYOUT_STEREO);
-    wanted_spec.silence = 0;
-    wanted_spec.samples = samples;
-    wanted_spec.callback = fill_audio;
-    wanted_spec.userdata = data;
-    SDL_OpenAudio(&wanted_spec, NULL);
-    SDL_PauseAudio(0);
-    return data;
-  }
-
-  DLLEXPORT AudioData *closeAudio(AudioData *audio)
-  {
-    SDL_CloseAudio();
+    return av_q2d(stream->time_base);
   }
 
   DLLEXPORT IMMDeviceEnumerator *createIMMDeviceEnumerator()
@@ -198,20 +160,6 @@ extern "C"
         (void **)&pRenderClient);
     return pRenderClient;
   }
-  // DLLEXPORT UINT32 IAudioRenderClientWriteBuffer(
-  //     IAudioClient *pAudioClient, IAudioRenderClient *pRenderClient, UINT32 bufferFrameCount, BYTE *data, UINT32 length)
-  // {
-  //   UINT32 numFramesPadding;
-  //   pAudioClient->GetCurrentPadding(&numFramesPadding);
-  //   UINT32 requestBuffer = bufferFrameCount - numFramesPadding;
-  //   if (requestBuffer > length)
-  //     requestBuffer = length;
-  //   BYTE *pData = NULL;
-  //   pRenderClient->GetBuffer(requestBuffer, &pData);
-  //   memcpy_s(pData, requestBuffer, data, requestBuffer);
-  //   pRenderClient->ReleaseBuffer(requestBuffer, 0);
-  //   return requestBuffer;
-  // }
   DLLEXPORT UINT32 ffiMemcpy(void *dst, void *src, UINT32 size)
   {
     return memcpy_s(dst, size, src, size);
@@ -228,9 +176,9 @@ extern "C"
     pRenderClient->GetBuffer(requestBuffer, &pData);
     return pData;
   }
-  DLLEXPORT HRESULT IAudioRenderClientReleaseBuffer(IAudioRenderClient *pRenderClient, UINT32 requestBuffer)
+  DLLEXPORT HRESULT IAudioRenderClientReleaseBuffer(IAudioRenderClient *pRenderClient, UINT32 requestBuffer, int dwFlags)
   {
-    return pRenderClient->ReleaseBuffer(requestBuffer, 0);
+    return pRenderClient->ReleaseBuffer(requestBuffer, dwFlags);
   }
   DLLEXPORT HRESULT IAudioClientStart(IAudioClient *pAudioClient)
   {

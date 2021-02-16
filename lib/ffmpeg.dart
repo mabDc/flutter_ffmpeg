@@ -1,27 +1,24 @@
+import 'dart:collection';
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:flutter_ffmpeg/ffi.dart';
+
+import 'audio.dart';
 
 class StreamInfo {
   int index;
   int codecType;
   Pointer<AVCodecParameters> _codecpar;
   CodecContext _codec;
+  double timebase;
   CodecContext get codec {
     if (_codecpar == null) throw Exception("StreamInfo destroyed");
-    if (_codec == null) {
-      final pCodec = avcodec_find_decoder(_codecpar.codec_id);
-      if (pCodec.address == 0) throw Exception("avcodec_find_decoder failed");
-      final pCodecCtx = allocate<Pointer<AVCodecContext>>();
-      pCodecCtx.value = avcodec_alloc_context3(pCodec);
-      var ret = avcodec_parameters_to_context(pCodecCtx.value, _codecpar);
-      if (ret != 0)
-        throw Exception("avcodec_parameters_to_context failed: $ret");
-      ret = avcodec_open2(pCodecCtx.value, pCodec, Pointer.fromAddress(0));
-      if (ret != 0) throw Exception("avcodec_open2 failed: $ret");
-      _codec = CodecContext._new(pCodecCtx);
-    }
+    if (_codec == null) _codec = CodecContext._new(_codecpar);
     return _codec;
+  }
+
+  int getFramePts(Frame frame) {
+    return (timebase * frame._value.best_effort_timestamp * 1000).toInt();
   }
 
   void close() {
@@ -31,30 +28,181 @@ class StreamInfo {
   }
 }
 
-class CodecContext {
-  Pointer<Pointer<AVCodecContext>> _ctx;
-  CodecContext._new(this._ctx);
+class AudioCodecContext extends CodecContext {
+  Pointer<Pointer<SwrContext>> _swrCtx;
+  int _srcChannelLayout = -1;
+  int _srcFormat = -1;
+  int _srcSampleRate = -1;
+  AudioClient _audio;
 
-  Frame createFrame(int fmt) {
+  Pointer<Pointer<Uint8>> _buffer;
+  Pointer<Pointer<Uint8>> _buffer1;
+  Pointer<Uint32> _bufferLen;
+
+  @override
+  Future playFrame(Frame frame) async {
+    final srcChannelLayout = frame._value.channel_layout;
+    final srcFormat = frame._value.format;
+    final srcSampleRate = frame._value.sample_rate;
+    if (_audio == null) {
+      _audio = AudioClient();
+      _audio.start();
+    }
+    if (_swrCtx == null) {
+      _swrCtx = allocate();
+      _swrCtx.value = Pointer.fromAddress(0);
+    }
+    if (_swrCtx.value.address == 0 ||
+        _srcChannelLayout != srcChannelLayout ||
+        _srcFormat != srcFormat ||
+        _srcSampleRate != srcSampleRate) {
+      if (_swrCtx.value.address != 0) swr_free(_swrCtx);
+      _swrCtx.value = swr_alloc_set_opts(
+          Pointer.fromAddress(0),
+          av_get_default_channel_layout(_audio.channels),
+          _audio.format,
+          _audio.sampleRate,
+          frame._value.channel_layout,
+          frame._value.format,
+          frame._value.sample_rate,
+          0,
+          Pointer.fromAddress(0));
+      if (_swrCtx.value.address == 0 || swr_init(_swrCtx.value) < 0)
+        throw Exception("cannot create SwrContext");
+      _srcChannelLayout = srcChannelLayout;
+      _srcFormat = srcFormat;
+      _srcSampleRate = srcSampleRate;
+    }
+    if (_buffer == null || _buffer.value.address == 0) {
+      _buffer = allocate();
+      _buffer.value = Pointer.fromAddress(0);
+    }
+    if (_bufferLen == null || _bufferLen.address == 0) {
+      _bufferLen = allocate();
+      _bufferLen.value = 0;
+    }
+    final inp = frame._value.extended_data;
+    final inCount = frame._value.nb_samples;
+    final outCount = inCount * _audio.sampleRate ~/ _srcSampleRate + 256;
+    final outSize = av_samples_get_buffer_size(
+        Pointer.fromAddress(0), _audio.channels, outCount, _audio.format, 0);
+    assert(outSize >= 0);
+    av_fast_malloc(_buffer, _bufferLen, outSize);
+    assert(_buffer.value.address != 0);
+    final nbSamples =
+        swr_convert(_swrCtx.value, _buffer, outCount, inp, inCount);
+    return _audio.writeBuffer(_buffer.value, nbSamples,
+        av_get_bytes_per_sample(_audio.format) * _audio.channels);
+  }
+
+  void close() {
+    super.close();
+    if (_audio != null) {
+      _audio.stop();
+      _audio.close();
+      _audio = null;
+    }
+    if (_swrCtx != null) {
+      if (_swrCtx.value.address != null) swr_free(_swrCtx);
+      free(_swrCtx);
+      _swrCtx = null;
+    }
+  }
+}
+
+class VideoCodecContext extends CodecContext {
+  Frame _frame;
+  void Function() _onFrame;
+  Frame createFrame(int fmt, void onFrame()) {
     if (_ctx == null) throw Exception("CodecContext destroyed");
-    final frame = Frame();
-    frame._fmt = fmt;
-    frame._width = _ctx.value.width;
-    frame._height = _ctx.value.height;
+    if (_frame != null) _frame.close();
+    _freeSwsCtx();
+    _onFrame = onFrame;
+    _frame = Frame();
+    _frame._fmt = fmt;
+    _frame._width = _ctx.value.width;
+    _frame._height = _ctx.value.height;
     final bufSize =
-        av_image_get_buffer_size(fmt, frame._width, frame._height, 1);
-    frame._buffer = allocate<Uint8>(count: bufSize);
+        av_image_get_buffer_size(fmt, _frame._width, _frame._height, 1);
+    _frame._buffer = allocate<Uint8>(count: bufSize);
     av_image_fill_arrays(
-        frame._pframe.value.data, // dst data[]
-        frame._pframe.value.linesize, // dst linesize[]
-        frame._buffer, // src buffer
+        _frame._value.data, // dst data[]
+        _frame._value.linesize, // dst linesize[]
+        _frame._buffer, // src buffer
         fmt, // pixel format
-        frame._width, // width
-        frame._height, // height
+        _frame._width, // width
+        _frame._height, // height
         1 // align
         );
-    return frame;
+    return _frame;
   }
+
+  Pointer<SwsContext> _swsCtx;
+  void _freeSwsCtx() {
+    if (_swsCtx != null && _swsCtx.address != 0) {
+      sws_freeContext(_swsCtx);
+    }
+    _swsCtx = null;
+  }
+
+  @override
+  void close() {
+    super.close();
+    _freeSwsCtx();
+  }
+
+  @override
+  Future playFrame(Frame frame) async {
+    if (_swsCtx == null || _swsCtx.address == 0) {
+      _swsCtx = sws_getContext(
+          _ctx.value.width, // src width
+          _ctx.value.height, // src height
+          _ctx.value.pix_fmt, // src format
+          _frame._width, // dst width
+          _frame._height, // dst height
+          _frame._fmt, // dst format
+          SWS_POINT, // flags
+          Pointer.fromAddress(0), // src filter
+          Pointer.fromAddress(0), // dst filter
+          Pointer.fromAddress(0) // param
+          );
+    }
+    if (_swsCtx == null || _swsCtx.address == 0)
+      throw Exception("cannot create SwsContext");
+    sws_scale(
+        _swsCtx, // sws context
+        frame._value.data, // src slice
+        frame._value.linesize, // src stride
+        0, // src slice y
+        _frame._height, // src slice height
+        _frame._value.data, // dst planes
+        _frame._value.linesize // dst strides
+        );
+    if (_onFrame != null) _onFrame();
+  }
+}
+
+abstract class CodecContext {
+  Pointer<Pointer<AVCodecContext>> _ctx;
+
+  static _new(Pointer<AVCodecParameters> codecpar) {
+    final pCodec = avcodec_find_decoder(codecpar.codec_id);
+    if (pCodec.address == 0) throw Exception("avcodec_find_decoder failed");
+    final pCodecCtx = allocate<Pointer<AVCodecContext>>();
+    pCodecCtx.value = avcodec_alloc_context3(pCodec);
+    var ret = avcodec_parameters_to_context(pCodecCtx.value, codecpar);
+    if (ret != 0) throw Exception("avcodec_parameters_to_context failed: $ret");
+    ret = avcodec_open2(pCodecCtx.value, pCodec, Pointer.fromAddress(0));
+    if (ret != 0) throw Exception("avcodec_open2 failed: $ret");
+    switch (codecpar.codec_type) {
+      case AVMediaType.AVMEDIA_TYPE_AUDIO:
+        return AudioCodecContext().._ctx = pCodecCtx;
+      case AVMediaType.AVMEDIA_TYPE_VIDEO:
+        return VideoCodecContext().._ctx = pCodecCtx;
+    }
+  }
+
+  Future playFrame(Frame frame);
 
   int getImageBufferSize(int fmt) {
     return av_image_get_buffer_size(
@@ -71,7 +219,8 @@ class CodecContext {
 
 class Frame {
   int _fmt;
-  Pointer<Pointer<AVFrame>> _pframe;
+  Pointer<Pointer<AVFrame>> _p;
+  Pointer<AVFrame> get _value => _p.value;
   Pointer<Uint8> _buffer;
   get buffer => _buffer;
   int _width;
@@ -79,22 +228,40 @@ class Frame {
   int _height;
   get height => _height;
   Frame() {
-    _pframe = allocate<Pointer<AVFrame>>();
-    _pframe.value = av_frame_alloc();
+    _p = allocate<Pointer<AVFrame>>();
+    _p.value = av_frame_alloc();
   }
 
   void close() {
-    if (_pframe == null) return;
+    if (_p == null) return;
     if (_buffer != null) free(_buffer);
     _buffer = null;
-    av_frame_free(_pframe);
-    free(_pframe);
-    _pframe = null;
+    av_frame_free(_p);
+    free(_p);
+    _p = null;
   }
 }
 
+class PlayFrame {
+  final int timeStamp;
+  final Frame frame;
+  final CodecContext codec;
+  PlayFrame(this.timeStamp, this.frame, this.codec);
+}
+
+class PTS {
+  int _relate = 0;
+  int _absolute = DateTime.now().millisecondsSinceEpoch;
+
+  update(int relate) {
+    _relate = relate;
+    _absolute = DateTime.now().millisecondsSinceEpoch;
+  }
+
+  ptsNow() => (DateTime.now().millisecondsSinceEpoch - _absolute) + _relate;
+}
+
 class FormatContext {
-  Future<dynamic> _context;
   final String url;
   Pointer<Pointer<AVFormatContext>> _ctx;
   List<StreamInfo> _streamInfo;
@@ -114,51 +281,62 @@ class FormatContext {
       throw Exception("context not initialized");
   }
 
-  Future play(StreamInfo videoStream, Frame frmArgb, void onFrame()) async {
+  PTS _pts;
+
+  Future play(
+    List<StreamInfo> streams,
+  ) async {
+    final pts = PTS().._relate = 0;
+    _pts = pts;
+    final playing = () => _pts == pts;
     final packet =
         allocate<Uint8>(count: ffiSizeOf<AVPacket>()).cast<AVPacket>();
-    final frmRaw = Frame();
-    final swsCtx = sws_getContext(
-        videoStream.codec._ctx.value.width, // src width
-        videoStream.codec._ctx.value.height, // src height
-        videoStream.codec._ctx.value.pix_fmt, // src format
-        frmArgb._width, // dst width
-        frmArgb._height, // dst height
-        frmArgb._fmt, // dst format
-        SWS_POINT, // flags
-        Pointer.fromAddress(0), // src filter
-        Pointer.fromAddress(0), // dst filter
-        Pointer.fromAddress(0) // param
-        );
+    var frame = Frame();
     try {
-      while (av_read_frame(_ctx.value, packet) == 0) {
+      Map<StreamInfo, Future Function(PlayFrame)> streamUpdators = {};
+      streams.forEach((stream) {
+        Future lastUpdate;
+        streamUpdators[stream] = (PlayFrame frame) async {
+          await lastUpdate;
+          final ptsNow = pts.ptsNow();
+          final timeStamp = frame.timeStamp;
+          if (stream.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO)
+            pts.update(timeStamp);
+          else if (timeStamp > ptsNow)
+            lastUpdate =
+                Future.delayed(Duration(milliseconds: timeStamp - ptsNow));
+          lastUpdate = lastUpdate ?? Future.sync(() => null);
+          lastUpdate = lastUpdate
+              .then((_) => frame.codec.playFrame(frame.frame))
+              .then((_) => frame.frame.close());
+        };
+      });
+
+      while (playing() && av_read_frame(_ctx.value, packet) == 0) {
         final streamIndex = packet.stream_index;
-        if (streamIndex == videoStream.index) {
-          final ret = avcodec_send_packet(videoStream.codec._ctx.value, packet);
+        final stream = streams.firstWhere((s) => s.index == streamIndex,
+            orElse: () => null);
+        if (stream != null) {
+          var ret = avcodec_send_packet(stream.codec._ctx.value, packet);
           if (ret != 0) throw Exception("avcodec_send_packet failed: $ret");
-          if (avcodec_receive_frame(
-                  videoStream.codec._ctx.value, frmRaw._pframe.value) ==
-              0) {
-            sws_scale(
-                swsCtx, // sws context
-                frmRaw._pframe.value.data, // src slice
-                frmRaw._pframe.value.linesize, // src stride
-                0, // src slice y
-                frmArgb._height, // src slice height
-                frmArgb._pframe.value.data, // dst planes
-                frmArgb._pframe.value.linesize // dst strides
-                );
-            onFrame();
-            await Future.delayed(Duration(milliseconds: 25));
+          if (0 ==
+              avcodec_receive_frame(
+                stream.codec._ctx.value,
+                frame._value,
+              )) {
+            final timeStamp = stream.getFramePts(frame);
+            await streamUpdators[stream]
+                .call(PlayFrame(timeStamp, frame, stream.codec));
+            frame = Frame();
           }
         }
         av_packet_unref(packet);
+        await Future.delayed(Duration.zero);
       }
     } finally {
+      _pts = null;
+      frame.close();
       free(packet);
-      sws_freeContext(swsCtx);
-      frmRaw.close();
-      frmArgb.close();
     }
   }
 
@@ -177,7 +355,8 @@ class FormatContext {
         _streamInfo.add(StreamInfo()
           ..index = i
           .._codecpar = codecPar
-          ..codecType = codecType);
+          ..codecType = codecType
+          ..timebase = getAVStreamTimebase(stream));
       }
     }
     return _streamInfo;
