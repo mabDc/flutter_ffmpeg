@@ -155,9 +155,18 @@ extern "C"
   DLLEXPORT IAudioRenderClient *IAudioClientGetService(IAudioClient *pAudioClient)
   {
     IAudioRenderClient *pRenderClient = NULL;
-    pAudioClient->GetService(
+    HRESULT ret = pAudioClient->GetService(
         IID_IAudioRenderClient,
         (void **)&pRenderClient);
+    if (FAILED(ret))
+    {
+      printf_s("AUDCLNT_E_DEVICE_INVALIDATED %x\n", AUDCLNT_E_DEVICE_INVALIDATED);
+      printf_s("AUDCLNT_E_WRONG_ENDPOINT_TYPE %x\n", AUDCLNT_E_WRONG_ENDPOINT_TYPE);
+      printf_s("AUDCLNT_E_NOT_INITIALIZED %x\n", AUDCLNT_E_NOT_INITIALIZED);
+      printf_s("AUDCLNT_E_SERVICE_NOT_RUNNING %x\n", AUDCLNT_E_SERVICE_NOT_RUNNING);
+      printf_s("%x\n", ret);
+      fflush(stdout);
+    }
     return pRenderClient;
   }
   DLLEXPORT UINT32 ffiMemcpy(void *dst, void *src, UINT32 size)
@@ -166,7 +175,7 @@ extern "C"
   }
   DLLEXPORT UINT32 IAudioClientGetCurrentPadding(IAudioClient *pAudioClient)
   {
-    UINT32 numFramesPadding;
+    UINT32 numFramesPadding = 0;
     pAudioClient->GetCurrentPadding(&numFramesPadding);
     return numFramesPadding;
   }

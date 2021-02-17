@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 import 'package:flutter_ffmpeg/ffi.dart';
@@ -38,9 +37,10 @@ class AudioCodecContext extends CodecContext {
   Pointer<Pointer<Uint8>> _buffer;
   Pointer<Pointer<Uint8>> _buffer1;
   Pointer<Uint32> _bufferLen;
+  Pointer<Uint32> _bufferLen1;
 
   @override
-  Future playFrame(Frame frame) async {
+  Future playFrame(Frame frame, Future delay) {
     final srcChannelLayout = frame._value.channel_layout;
     final srcFormat = frame._value.format;
     final srcSampleRate = frame._value.sample_rate;
@@ -86,13 +86,20 @@ class AudioCodecContext extends CodecContext {
     final outCount = inCount * _audio.sampleRate ~/ _srcSampleRate + 256;
     final outSize = av_samples_get_buffer_size(
         Pointer.fromAddress(0), _audio.channels, outCount, _audio.format, 0);
-    assert(outSize >= 0);
+    if (outSize < 0) throw Exception("av_samples_get_buffer_size failed");
     av_fast_malloc(_buffer, _bufferLen, outSize);
-    assert(_buffer.value.address != 0);
+    if (_buffer.value.address == 0) throw Exception("av_fast_malloc failed");
     final nbSamples =
         swr_convert(_swrCtx.value, _buffer, outCount, inp, inCount);
-    return _audio.writeBuffer(_buffer.value, nbSamples,
-        av_get_bytes_per_sample(_audio.format) * _audio.channels);
+    // swap buffer -> buffer1
+    final buffer = _buffer;
+    final bufferLen = _bufferLen;
+    _buffer = _buffer1;
+    _bufferLen = _bufferLen1;
+    _buffer1 = buffer;
+    _bufferLen1 = bufferLen;
+    return Future.value(delay).then((_) => _audio.writeBuffer(buffer.value,
+        nbSamples, av_get_bytes_per_sample(_audio.format) * _audio.channels));
   }
 
   void close() {
@@ -152,7 +159,7 @@ class VideoCodecContext extends CodecContext {
   }
 
   @override
-  Future playFrame(Frame frame) async {
+  Future playFrame(Frame frame, Future delay) async {
     if (_swsCtx == null || _swsCtx.address == 0) {
       _swsCtx = sws_getContext(
           _ctx.value.width, // src width
@@ -169,6 +176,7 @@ class VideoCodecContext extends CodecContext {
     }
     if (_swsCtx == null || _swsCtx.address == 0)
       throw Exception("cannot create SwsContext");
+    await delay;
     sws_scale(
         _swsCtx, // sws context
         frame._value.data, // src slice
@@ -202,7 +210,7 @@ abstract class CodecContext {
     }
   }
 
-  Future playFrame(Frame frame);
+  Future playFrame(Frame frame, Future delay);
 
   int getImageBufferSize(int fmt) {
     return av_image_get_buffer_size(
@@ -296,19 +304,21 @@ class FormatContext {
       Map<StreamInfo, Future Function(PlayFrame)> streamUpdators = {};
       streams.forEach((stream) {
         Future lastUpdate;
-        streamUpdators[stream] = (PlayFrame frame) async {
-          await lastUpdate;
+        streamUpdators[stream] = (PlayFrame frame) {
+          final _lastUpdate = lastUpdate;
           final ptsNow = pts.ptsNow();
           final timeStamp = frame.timeStamp;
-          if (stream.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO)
-            pts.update(timeStamp);
-          else if (timeStamp > ptsNow)
-            lastUpdate =
-                Future.delayed(Duration(milliseconds: timeStamp - ptsNow));
-          lastUpdate = lastUpdate ?? Future.sync(() => null);
-          lastUpdate = lastUpdate
-              .then((_) => frame.codec.playFrame(frame.frame))
-              .then((_) => frame.frame.close());
+          final comp = () => frame.codec.playFrame(frame.frame, _lastUpdate);
+          lastUpdate = stream.codecType == AVMediaType.AVMEDIA_TYPE_VIDEO &&
+                  timeStamp > ptsNow
+              ? Future.delayed(Duration(milliseconds: timeStamp - ptsNow), comp)
+              : comp();
+          lastUpdate.then((_) {
+            // if (stream.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO)
+            //   pts.update(timeStamp);
+            frame.frame.close();
+          });
+          return _lastUpdate;
         };
       });
 
