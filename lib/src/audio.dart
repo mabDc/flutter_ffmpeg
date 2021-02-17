@@ -47,7 +47,7 @@ class _AudioClient {
   }
 
   int _padding = -1;
-  writeBuffer(Pointer<Uint8> data, int length, int bytePerFrame, PTS pts,
+  writeBuffer(Pointer<Uint8> data, int length, int bytePerFrame, _PTS pts,
       int timestamp) async {
     if (_pRenderClient == null || _pRenderClient.address == 0)
       throw Exception("audio not initialized");

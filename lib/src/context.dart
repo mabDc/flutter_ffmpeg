@@ -21,7 +21,7 @@ class FfmpegStream implements _IsolateEncodable {
   Map _encode() => {#streamIndex: index, #streamCodecType: codecType};
 
   void _close() {
-    if (__codec != null) __codec.close();
+    if (__codec != null) __codec._close();
     __codec = null;
   }
 }
@@ -39,7 +39,7 @@ class _AudioCodecContext extends _CodecContext {
   Pointer<Uint32> _bufferLen1;
 
   @override
-  Future playFrame(PlayFrame frame, Future delay) {
+  Future _playFrame(_PlayFrame frame, Future delay) {
     final srcChannelLayout = frame.frame._value.channel_layout;
     final srcFormat = frame.frame._value.format;
     final srcSampleRate = frame.frame._value.sample_rate;
@@ -106,8 +106,9 @@ class _AudioCodecContext extends _CodecContext {
         ));
   }
 
-  void close() {
-    super.close();
+  @override
+  void _close() {
+    super._close();
     if (_audio != null) {
       _audio.stop();
       _audio.close();
@@ -123,8 +124,8 @@ class _AudioCodecContext extends _CodecContext {
 
 class _VideoCodecContext extends _CodecContext {
   Frame _frame;
-  IsolateFunction _onFrame;
-  Frame createFrame(int fmt, IsolateFunction onFrame) {
+  _IsolateFunction _onFrame;
+  Frame _createFrame(int fmt, _IsolateFunction onFrame) {
     if (_ctx == null) throw Exception("CodecContext destroyed");
     if (_frame != null) _frame.close();
     _freeSwsCtx();
@@ -157,13 +158,14 @@ class _VideoCodecContext extends _CodecContext {
   }
 
   @override
-  void close() {
-    super.close();
+  void _close() {
+    super._close();
     _freeSwsCtx();
   }
 
   @override
-  Future playFrame(PlayFrame frame, Future delay) async {
+  Future _playFrame(_PlayFrame frame, Future delay) async {
+    if (_ctx == null || _ctx.address == 0) return;
     if (_swsCtx == null || _swsCtx.address == 0) {
       _swsCtx = sws_getContext(
           _ctx.value.width, // src width
@@ -214,14 +216,9 @@ abstract class _CodecContext {
     }
   }
 
-  Future playFrame(PlayFrame frame, Future delay);
+  Future _playFrame(_PlayFrame frame, Future delay);
 
-  int getImageBufferSize(int fmt) {
-    return av_image_get_buffer_size(
-        fmt, _ctx.value.width, _ctx.value.height, 1);
-  }
-
-  void close() {
+  void _close() {
     if (_ctx == null) return;
     avcodec_free_context(_ctx);
     free(_ctx);
@@ -261,15 +258,15 @@ class Frame implements _IsolateEncodable {
       };
 }
 
-class PlayFrame {
-  final PTS pts;
+class _PlayFrame {
+  final _PTS pts;
   final int timeStamp;
   final Frame frame;
   final _CodecContext codec;
-  PlayFrame(this.timeStamp, this.frame, this.codec, this.pts);
+  _PlayFrame(this.timeStamp, this.frame, this.codec, this.pts);
 }
 
-class PTS {
+class _PTS {
   int _relate = 0;
   int _absolute = DateTime.now().millisecondsSinceEpoch;
 
@@ -301,31 +298,46 @@ class FormatContext {
       throw Exception("context not initialized");
   }
 
-  PTS _pts;
+  _PTS _pts;
+  Future _playing;
 
   Future play(
     List<FfmpegStream> streams,
   ) async {
-    final pts = PTS().._relate = 0;
+    await stop();
+    _playing = _play(streams);
+    return _playing;
+  }
+
+  Future stop() {
+    _pts = null;
+    return _playing;
+  }
+
+  Future _play(
+    List<FfmpegStream> streams,
+  ) async {
+    final pts = _PTS().._relate = 0;
     _pts = pts;
     final playing = () => _pts == pts;
     final packet =
         allocate<Uint8>(count: ffiSizeOf<AVPacket>()).cast<AVPacket>();
     var frame = Frame._new();
     try {
-      Map<FfmpegStream, Future Function(PlayFrame)> streamUpdators = {};
+      Map<FfmpegStream, Future Function(_PlayFrame)> streamUpdators = {};
       streams.forEach((stream) {
         Future lastUpdate;
-        streamUpdators[stream] = (PlayFrame frame) {
+        streamUpdators[stream] = (_PlayFrame frame) {
           final _lastUpdate = lastUpdate;
           final ptsNow = pts.ptsNow();
           final timeStamp = frame.timeStamp;
-          final comp = () => frame.codec.playFrame(frame, _lastUpdate);
-          lastUpdate = stream._p.codecpar.codec_type ==
-                      AVMediaType.AVMEDIA_TYPE_VIDEO &&
-                  timeStamp > ptsNow
-              ? Future.delayed(Duration(milliseconds: timeStamp - ptsNow), comp)
-              : comp();
+          final comp = () => frame.codec._playFrame(frame, _lastUpdate);
+          lastUpdate =
+              stream._p.codecpar.codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO &&
+                      timeStamp > ptsNow
+                  ? Future.delayed(Duration(milliseconds: timeStamp - ptsNow),
+                      () => playing() ? comp() : null)
+                  : comp();
           lastUpdate.then((_) {
             frame.frame.close();
           });
@@ -333,7 +345,7 @@ class FormatContext {
         };
       });
 
-      while (playing() && av_read_frame(_ctx.value, packet) == 0) {
+      while (playing() && _ctx != null && av_read_frame(_ctx.value, packet) == 0) {
         final streamIndex = packet.stream_index;
         final stream = streams.firstWhere((s) => s.index == streamIndex,
             orElse: () => null);
@@ -347,7 +359,7 @@ class FormatContext {
               )) {
             final timeStamp = stream._getFramePts(frame);
             await streamUpdators[stream]
-                .call(PlayFrame(timeStamp, frame, stream._codec, pts));
+                .call(_PlayFrame(timeStamp, frame, stream._codec, pts));
             frame = Frame._new();
           }
         }
@@ -362,14 +374,14 @@ class FormatContext {
   }
 
   Frame createFrame(FfmpegStream stream, void onFrame()) {
-    return _createFrame(stream, IsolateFunction._new((_) {
+    return _createFrame(stream, _IsolateFunction._new((_) {
       onFrame();
     }));
   }
 
-  Frame _createFrame(FfmpegStream stream, IsolateFunction onFrame) {
+  Frame _createFrame(FfmpegStream stream, _IsolateFunction onFrame) {
     return (stream._codec as _VideoCodecContext)
-        .createFrame(AV_PIX_FMT_RGBA, onFrame);
+        ._createFrame(AV_PIX_FMT_RGBA, onFrame);
   }
 
   List<FfmpegStream> getStreams() {

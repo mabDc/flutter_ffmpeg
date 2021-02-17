@@ -39,18 +39,25 @@ class IsolateError extends _IsolateEncodable {
   }
 }
 
-class IsolateFunction implements _IsolateEncodable {
+class _IsolateFunction implements _IsolateEncodable {
   int _isolateId;
   SendPort _port;
   Function(dynamic) _invokable;
-  IsolateFunction._fromId(this._isolateId, this._port);
+  _IsolateFunction._fromId(this._isolateId, this._port);
 
-  IsolateFunction._new(this._invokable) {
+  _IsolateFunction._new(this._invokable) {
     _handlers.add(this);
   }
 
+  static void _destoryAll() async {
+    while (_IsolateFunction._handlers.isNotEmpty) {
+      _IsolateFunction._handlers.first.destroy();
+    }
+    _invokeHandler.close();
+  }
+
   static ReceivePort _invokeHandler;
-  static Set<IsolateFunction> _handlers = Set();
+  static Set<_IsolateFunction> _handlers = Set();
 
   static get _handlePort {
     if (_invokeHandler == null) {
@@ -119,9 +126,9 @@ class IsolateFunction implements _IsolateEncodable {
     });
   }
 
-  static IsolateFunction _decode(Map obj) {
+  static _IsolateFunction _decode(Map obj) {
     if (obj.containsKey(#jsFunctionPort))
-      return IsolateFunction._fromId(
+      return _IsolateFunction._fromId(
         obj[#jsFunctionId],
         obj[#jsFunctionPort],
       );
@@ -132,7 +139,7 @@ class IsolateFunction implements _IsolateEncodable {
   Map _encode() {
     return {
       #jsFunctionId: _isolateId ?? identityHashCode(this),
-      #jsFunctionPort: _port ?? IsolateFunction._handlePort,
+      #jsFunctionPort: _port ?? _IsolateFunction._handlePort,
     };
   }
 
@@ -242,8 +249,7 @@ dynamic _decodeData(data, decoders, {Map<dynamic, dynamic> cache}) {
 
 void _runIsolate(Map spawnMessage) async {
   SendPort sendPort = spawnMessage[#port];
-  ReceivePort port = ReceivePort();
-  final ctx = FormatContext(spawnMessage[#url]);
+  FormatContext ctx;
   final decoders = <_DecodeFunc>[
     (obj) {
       final index = obj[#streamIndexIsolate];
@@ -251,7 +257,14 @@ void _runIsolate(Map spawnMessage) async {
       return null;
     }
   ];
-  sendPort.send(_encodeData(IsolateFunction._new(
+  try {
+    ctx = FormatContext(spawnMessage[#url]);
+  } catch (e, stack) {
+    sendPort.send({
+      #error: IsolateError(e, stack),
+    });
+  }
+  sendPort.send(_IsolateFunction._new(
     (_msg) async {
       final msg = _decodeData(
         _msg,
@@ -265,21 +278,22 @@ void _runIsolate(Map spawnMessage) async {
         case #play:
           return ctx.play(List<FfmpegStream>.from(msg[#streams]));
         case #close:
-          return port.close();
+          ctx.close();
+          return _IsolateFunction._destoryAll();
       }
     },
-  )));
+  )._encode());
 }
 
 final _isolateDecoders = <_DecodeFunc>[
   IsolateFfmpegStream._decode,
-  IsolateFunction._decode,
+  _IsolateFunction._decode,
   IsolateFrame._decode,
   IsolateError._decode,
 ];
 
 class IsolateFormatContext {
-  Future<IsolateFunction> _isolate;
+  Future<_IsolateFunction> _isolate;
 
   final String url;
 
@@ -296,9 +310,11 @@ class IsolateFormatContext {
       },
       errorsAreFatal: true,
     );
-    _isolate = port.first.then((value) {
+    _isolate = port.first.then((result) {
       port.close();
-      return _decodeData(value, _isolateDecoders) as IsolateFunction;
+      if (result is Map && result.containsKey(#error))
+        throw _decodeData(result[#error], _isolateDecoders);
+      return _decodeData(result, _isolateDecoders) as _IsolateFunction;
     });
   }
 
@@ -309,18 +325,18 @@ class IsolateFormatContext {
     }));
   }
 
-  List<IsolateFunction> _isolates = [];
+  List<_IsolateFunction> _funcs = [];
   Future<IsolateFrame> createFrame(
       IsolateFfmpegStream stream, void onFrame()) async {
     _ensureEngine();
-    final isolate = IsolateFunction._new((_) {
+    final func = _IsolateFunction._new((_) {
       onFrame();
     });
-    _isolates.add(isolate);
+    _funcs.add(func);
     return (await (await _isolate)({
       #type: #createFrame,
-      #stream: _encodeData(stream),
-      #onFrame: _encodeData(isolate),
+      #stream: stream,
+      #onFrame: func,
     })) as IsolateFrame;
   }
 
@@ -330,14 +346,14 @@ class IsolateFormatContext {
     _ensureEngine();
     return (await _isolate)({
       #type: #play,
-      #streams: _encodeData(streams),
+      #streams: streams,
     });
   }
 
   close() {
     if (_isolate == null) return;
-    _isolates.forEach((e) => e.free());
-    _isolates.clear();
+    _funcs.forEach((e) => e.free());
+    _funcs.clear();
     final ret = _isolate.then((isolate) async {
       final closePort = ReceivePort();
       await isolate({

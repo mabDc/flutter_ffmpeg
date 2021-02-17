@@ -17,6 +17,7 @@ class _MyAppState extends State<MyApp> {
   TextEditingController _controller = TextEditingController(
     text: 'D:\\Downloads\\System\\big_buck_bunny.mp4',
   );
+  IsolateFormatContext _lastCtx;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,9 @@ class _MyAppState extends State<MyApp> {
               TextButton(
                 child: Text("play"),
                 onPressed: () async {
-                  final ctx = IsolateFormatContext(_controller.text);
+                  if (_lastCtx != null) _lastCtx.close();
+                  _lastCtx = IsolateFormatContext(_controller.text);
+                  final ctx = _lastCtx;
                   final streams = await ctx.getStreams();
                   final astream = streams.firstWhere((infos) =>
                       infos.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO);
