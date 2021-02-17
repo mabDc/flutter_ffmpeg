@@ -40,16 +40,25 @@ class _MyAppState extends State<MyApp> {
                   _lastCtx = IsolateFormatContext(_controller.text);
                   final ctx = _lastCtx;
                   final streams = await ctx.getStreams();
-                  final astream = streams.firstWhere((infos) =>
-                      infos.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO);
-                  final vstream = streams.firstWhere((infos) =>
-                      infos.codecType == AVMediaType.AVMEDIA_TYPE_VIDEO);
-                  final frame = await ctx.createFrame(vstream, () {
-                    _texture.onFrame();
-                  });
-                  await _texture.attatchBuffer(
-                      frame.buffer, frame.width, frame.height);
-                  await ctx.play([astream, vstream]);
+                  final playStream = <IsolateFfmpegStream>[];
+                  final astream = streams.firstWhere(
+                      (infos) =>
+                          infos.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO,
+                      orElse: () => null);
+                  if (astream != null) playStream.add(astream);
+                  final vstream = streams.firstWhere(
+                      (infos) =>
+                          infos.codecType == AVMediaType.AVMEDIA_TYPE_VIDEO,
+                      orElse: () => null);
+                  if (vstream != null) {
+                    playStream.add(vstream);
+                    final frame = await ctx.createFrame(vstream, () {
+                      _texture.onFrame();
+                    });
+                    await _texture.attatchBuffer(
+                        frame.buffer, frame.width, frame.height);
+                  }
+                  await ctx.play(playStream);
                 },
               )
             ],
