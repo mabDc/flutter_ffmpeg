@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_ffmpeg/ffi.dart';
 import 'package:flutter_ffmpeg/ffmpeg.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -43,8 +42,8 @@ void main() {
     Directory.current = './test/build/Debug';
   });
   test('avformat', () async {
-    final ctx = FormatContext('D:\\CloudMusic\\seven oops - オレンジ.flac');
-    final astream = ctx.getStreamInfo().firstWhere(
+    final ctx = IsolateFormatContext('D:\\CloudMusic\\seven oops - オレンジ.flac');
+    final astream = (await ctx.getStreams()).firstWhere(
         (infos) => infos.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO);
     await ctx.play([astream]);
   });

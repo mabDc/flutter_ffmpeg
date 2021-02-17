@@ -46,9 +46,9 @@ extern "C"
   DEFINE_GET_CLASS_PROP(AVFrame, best_effort_timestamp)
   DEFINE_GET_CLASS_PROP(AVPacket, stream_index)
 
-  DLLEXPORT double get_AVStream_time_base(AVStream *stream)
+  DLLEXPORT uint64_t getFrameTimeMillisecond(AVFrame *frame, AVStream *stream)
   {
-    return av_q2d(stream->time_base);
+    return frame->best_effort_timestamp * av_q2d(stream->time_base) * 1000;
   }
 
   DLLEXPORT IMMDeviceEnumerator *createIMMDeviceEnumerator()
@@ -155,18 +155,9 @@ extern "C"
   DLLEXPORT IAudioRenderClient *IAudioClientGetService(IAudioClient *pAudioClient)
   {
     IAudioRenderClient *pRenderClient = NULL;
-    HRESULT ret = pAudioClient->GetService(
+    pAudioClient->GetService(
         IID_IAudioRenderClient,
         (void **)&pRenderClient);
-    if (FAILED(ret))
-    {
-      printf_s("AUDCLNT_E_DEVICE_INVALIDATED %x\n", AUDCLNT_E_DEVICE_INVALIDATED);
-      printf_s("AUDCLNT_E_WRONG_ENDPOINT_TYPE %x\n", AUDCLNT_E_WRONG_ENDPOINT_TYPE);
-      printf_s("AUDCLNT_E_NOT_INITIALIZED %x\n", AUDCLNT_E_NOT_INITIALIZED);
-      printf_s("AUDCLNT_E_SERVICE_NOT_RUNNING %x\n", AUDCLNT_E_SERVICE_NOT_RUNNING);
-      printf_s("%x\n", ret);
-      fflush(stdout);
-    }
     return pRenderClient;
   }
   DLLEXPORT UINT32 ffiMemcpy(void *dst, void *src, UINT32 size)

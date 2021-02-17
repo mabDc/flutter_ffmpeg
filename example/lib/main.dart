@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ffmpeg/ffi.dart';
 import 'package:flutter_ffmpeg/texture.dart';
 import 'package:flutter_ffmpeg/ffmpeg.dart';
 
@@ -36,13 +35,13 @@ class _MyAppState extends State<MyApp> {
               TextButton(
                 child: Text("play"),
                 onPressed: () async {
-                  final ctx = FormatContext(_controller.text);
-                  final astream = ctx.getStreamInfo().firstWhere((infos) =>
+                  final ctx = IsolateFormatContext(_controller.text);
+                  final streams = await ctx.getStreams();
+                  final astream = streams.firstWhere((infos) =>
                       infos.codecType == AVMediaType.AVMEDIA_TYPE_AUDIO);
-                  final vstream = ctx.getStreamInfo().firstWhere((infos) =>
+                  final vstream = streams.firstWhere((infos) =>
                       infos.codecType == AVMediaType.AVMEDIA_TYPE_VIDEO);
-                  final frame = (vstream.codec as VideoCodecContext)
-                      .createFrame(AV_PIX_FMT_RGBA, () {
+                  final frame = await ctx.createFrame(vstream, () {
                     _texture.onFrame();
                   });
                   await _texture.attatchBuffer(

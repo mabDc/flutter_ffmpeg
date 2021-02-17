@@ -1,9 +1,6 @@
-import 'dart:ffi';
-import 'dart:math';
+part of 'package:flutter_ffmpeg/ffmpeg.dart';
 
-import 'ffi.dart';
-
-class AudioClient {
+class _AudioClient {
   Pointer<IMMDeviceEnumerator> _pEnumerator;
   Pointer<IMMDevice> _pDevice;
   Pointer<IAudioClient> _pAudioClient;
@@ -15,7 +12,7 @@ class AudioClient {
   get sampleRate => _pwfx.ref.nSamplesPerSec;
   get channels => _pwfx.ref.nChannels;
 
-  AudioClient() {
+  _AudioClient() {
     try {
       _pEnumerator = createIMMDeviceEnumerator();
       if (_pEnumerator.address == 0)
@@ -50,12 +47,14 @@ class AudioClient {
   }
 
   int _padding = -1;
-  writeBuffer(Pointer<Uint8> data, int length, int bytePerFrame) async {
+  writeBuffer(Pointer<Uint8> data, int length, int bytePerFrame, PTS pts,
+      int timestamp) async {
     if (_pRenderClient == null || _pRenderClient.address == 0)
       throw Exception("audio not initialized");
     int offset = 0;
     while (offset < length) {
       final frames = iAudioClientGetCurrentPadding(_pAudioClient);
+      if (offset == 0) pts.update(timestamp - frames * 1000 ~/ sampleRate);
       if (frames > bufferFrameCount * 0.8) {
         await waitHalfBuffer();
         continue;

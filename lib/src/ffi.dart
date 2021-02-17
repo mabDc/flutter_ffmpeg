@@ -112,15 +112,17 @@ extension PointerAVPacket on Pointer<AVPacket> {
   int get stream_index => _ffiGetProperty(this, 'stream_index');
 }
 
-// double get_AVStream_time_base(AVStream *stream)
-final double Function(
+// uint64_t getFrameTimeMillisecond(AVFrame *frame, AVStream *stream)
+final int Function(
+  Pointer<AVFrame> frame,
   Pointer<AVStream> stream,
-) getAVStreamTimebase = ffilib
+) getFrameTimeMillisecond = ffilib
     .lookup<
         NativeFunction<
-            Double Function(
+            Uint64 Function(
+      Pointer<AVFrame>,
       Pointer<AVStream>,
-    )>>('get_AVStream_time_base')
+    )>>('getFrameTimeMillisecond')
     .asFunction();
 
 // uint64_t getFramePtsMilliseconds(AVFrame *frame, AVCodecContext *codec)
