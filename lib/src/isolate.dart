@@ -25,8 +25,7 @@ class IsolateError extends _IsolateEncodable {
   }
 
   static IsolateError _decode(Map obj) {
-    if (obj.containsKey(#jsError))
-      return IsolateError(obj[#jsError], obj[#jsErrorStack]);
+    if (obj.containsKey(#jsError)) return IsolateError(obj[#jsError], obj[#jsErrorStack]);
     return null;
   }
 
@@ -212,8 +211,7 @@ dynamic _encodeData(data, {Map<dynamic, dynamic> cache}) {
     final ret = {};
     cache[data] = ret;
     for (final entry in data.entries) {
-      ret[_encodeData(entry.key, cache: cache)] =
-          _encodeData(entry.value, cache: cache);
+      ret[_encodeData(entry.key, cache: cache)] = _encodeData(entry.value, cache: cache);
     }
     return ret;
   }
@@ -277,6 +275,8 @@ void _runIsolate(Map spawnMessage) async {
           return ctx._createFrame(msg[#stream], msg[#onFrame]);
         case #play:
           return ctx.play(List<FfmpegStream>.from(msg[#streams]));
+        case #stop:
+          return ctx.stop();
         case #close:
           ctx.close();
           return _IsolateFunction._destoryAll();
@@ -326,8 +326,7 @@ class IsolateFormatContext {
   }
 
   List<_IsolateFunction> _funcs = [];
-  Future<IsolateFrame> createFrame(
-      IsolateFfmpegStream stream, void onFrame()) async {
+  Future<IsolateFrame> createFrame(IsolateFfmpegStream stream, void onFrame()) async {
     _ensureEngine();
     final func = _IsolateFunction._new((_) {
       onFrame();
@@ -347,6 +346,13 @@ class IsolateFormatContext {
     return (await _isolate)({
       #type: #play,
       #streams: streams,
+    });
+  }
+
+  Future stop() async {
+    _ensureEngine();
+    return (await _isolate)({
+      #type: #stop,
     });
   }
 

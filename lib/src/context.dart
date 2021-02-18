@@ -88,8 +88,7 @@ class _AudioCodecContext extends _CodecContext {
     if (outSize < 0) throw Exception("av_samples_get_buffer_size failed");
     av_fast_malloc(_buffer, _bufferLen, outSize);
     if (_buffer.value.address == 0) throw Exception("av_fast_malloc failed");
-    final nbSamples =
-        swr_convert(_swrCtx.value, _buffer, outCount, inp, inCount);
+    final nbSamples = swr_convert(_swrCtx.value, _buffer, outCount, inp, inCount);
     // swap buffer -> buffer1
     final buffer = _buffer;
     final bufferLen = _bufferLen;
@@ -134,8 +133,7 @@ class _VideoCodecContext extends _CodecContext {
     _frame._fmt = fmt;
     _frame._width = _ctx.value.width;
     _frame._height = _ctx.value.height;
-    final bufSize =
-        av_image_get_buffer_size(fmt, _frame._width, _frame._height, 1);
+    final bufSize = av_image_get_buffer_size(fmt, _frame._width, _frame._height, 1);
     _frame._buffer = allocate<Uint8>(count: bufSize);
     av_image_fill_arrays(
         _frame._value.data, // dst data[]
@@ -287,8 +285,8 @@ class FormatContext {
     _ctx = allocate<Pointer<AVFormatContext>>();
     _ctx.value = Pointer.fromAddress(0);
     final _url = Utf8.toUtf8(url);
-    int ret = avformat_open_input(
-        _ctx, _url, Pointer.fromAddress(0), Pointer.fromAddress(0));
+    int ret =
+        avformat_open_input(_ctx, _url, Pointer.fromAddress(0), Pointer.fromAddress(0));
     free(_url);
     if (ret != 0) throw Exception("avformat_open_input failed: $ret");
   }
@@ -320,8 +318,7 @@ class FormatContext {
     final pts = _PTS().._relate = 0;
     _pts = pts;
     final playing = () => _pts == pts;
-    final packet =
-        allocate<Uint8>(count: ffiSizeOf<AVPacket>()).cast<AVPacket>();
+    final packet = allocate<Uint8>(count: ffiSizeOf<AVPacket>()).cast<AVPacket>();
     var frame = Frame._new();
     try {
       Map<FfmpegStream, Future Function(_PlayFrame)> streamUpdators = {};
@@ -332,12 +329,11 @@ class FormatContext {
           final ptsNow = pts.ptsNow();
           final timeStamp = frame.timeStamp;
           final comp = () => frame.codec._playFrame(frame, _lastUpdate);
-          lastUpdate =
-              stream._p.codecpar.codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO &&
-                      timeStamp > ptsNow
-                  ? Future.delayed(Duration(milliseconds: timeStamp - ptsNow),
-                      () => playing() ? comp() : null)
-                  : comp();
+          lastUpdate = stream._p.codecpar.codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO &&
+                  timeStamp > ptsNow
+              ? Future.delayed(Duration(milliseconds: timeStamp - ptsNow),
+                  () => playing() ? comp() : null)
+              : comp();
           lastUpdate.then((_) {
             frame.frame.close();
           });
@@ -347,8 +343,8 @@ class FormatContext {
 
       while (playing() && _ctx != null && av_read_frame(_ctx.value, packet) == 0) {
         final streamIndex = packet.stream_index;
-        final stream = streams.firstWhere((s) => s.index == streamIndex,
-            orElse: () => null);
+        final stream =
+            streams.firstWhere((s) => s.index == streamIndex, orElse: () => null);
         if (stream != null) {
           var ret = avcodec_send_packet(stream._codec._ctx.value, packet);
           if (ret != 0) throw Exception("avcodec_send_packet failed: $ret");
@@ -380,8 +376,7 @@ class FormatContext {
   }
 
   Frame _createFrame(FfmpegStream stream, _IsolateFunction onFrame) {
-    return (stream._codec as _VideoCodecContext)
-        ._createFrame(AV_PIX_FMT_RGBA, onFrame);
+    return (stream._codec as _VideoCodecContext)._createFrame(AV_PIX_FMT_RGBA, onFrame);
   }
 
   List<FfmpegStream> getStreams() {
